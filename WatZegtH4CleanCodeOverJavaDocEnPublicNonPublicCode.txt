@@ -1,1 +1,4 @@
-Alle tekst weggehaald
+- JavaDoc is onmisbaar voor het genereren van documentatie voor publieke APIs
+- HTML is comments zorgt voor onleesbaarheid
+- Schrijf alleen javadoc voor publieke APIs
+- Geef niet toe aan een overtuiging dat "alles commentaar moet hebben"
