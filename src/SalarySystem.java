@@ -2,7 +2,12 @@ import java.util.ArrayList;
 
 import model.*;
 
-
+/**
+ * 
+ * @author jvdslikke
+ *
+ * This class maintains a list of employees and raises their salary.
+ */
 public class SalarySystem
 {
 	protected Logger logger;
@@ -14,6 +19,9 @@ public class SalarySystem
 		this.colleagues = new ArrayList<AbstractEmployee>();
 	}
 	
+	/**
+	 * Raises the salary of all employees
+	 */
 	public void raiseSalaryOfAllEmployees()
 	{
 		for(AbstractEmployee employee : this.colleagues)
@@ -22,11 +30,23 @@ public class SalarySystem
 		}
 	}
 	
+	/**
+	 * Adds an employee to the list
+	 * 
+	 * @param c The employee to add
+	 */
 	public void addColleague(AbstractEmployee c)
 	{
 		colleagues.add(c);
 	}
 	
+	/**
+	 * Get an employee from the list by name
+	 * 
+	 * @param searchName The name to find employee by
+	 * @return The found employee
+	 * @throws RuntimeException if the employee isn't found
+	 */
 	public AbstractEmployee search(String searchName)
 	{		
 		for(AbstractEmployee employee : colleagues)
@@ -40,6 +60,11 @@ public class SalarySystem
 		throw new RuntimeException("employee with name "+searchName+" not found");
 	}
 	
+	/**
+	 * Raises the salary of a specific employee and log it (side effect)
+	 *  
+	 * @param e The employee to raise the salary of
+	 */
 	public void raiseSalary(AbstractEmployee e)
 	{
 		e.raiseSalary();
@@ -47,6 +72,9 @@ public class SalarySystem
 		this.logger.addLogMessage("employee "+e.getName()+" salary raised to "+e.getPay());
 	}
 	
+	/**
+	 * Print information about all the employees
+	 */
 	public void printAll()
 	{
 		for (AbstractEmployee e : colleagues)
@@ -55,11 +83,19 @@ public class SalarySystem
 		}
 	}
 	
+	/**
+	 * Print all gathered log messages
+	 */
 	public void outputLogMessages()
 	{
 		this.logger.outputMessages();
 	}
 	
+	/**
+	 * Runs the program
+	 * 
+	 * @param args
+	 */
 	public static void main(String args[])
 	{
 		SalarySystem salarySystem = new SalarySystem();
